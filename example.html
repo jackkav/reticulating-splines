@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <title>Reticulating Splines</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+
+</head>
+<body ng-app="exampleApp">
+    <div ng-controller="ExampleCtrl as example">
+        <h1>{{example.message}}</h1>
+        <select ng-options="option.name for option in example.themes track by option.value"
+            ng-model="example.theme">
+        </select>
+        <button ng-click="example.loadMessage()">Load Message</button>
+    </div>
+
+    <script src="dist/reticulating-splines.js"></script>
+    <script>
+        angular.module('exampleApp', ['reticulatingSplines'])
+            .controller('ExampleCtrl', function(spline) {
+                var ctrl = this;
+
+                ctrl.themes = [
+                    {name: 'Business Jargon', value: 'web'},
+                    {name: 'The Sims', value: 'sims'}
+                ];
+                ctrl.theme = ctrl.themes[0];
+
+                ctrl.loadMessage = function() {
+                    ctrl.message = spline(ctrl.theme.value);
+                };
+                ctrl.loadMessage();
+            });
+    </script>
+</body>
+</html>
