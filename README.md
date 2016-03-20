@@ -7,6 +7,12 @@ A fun addition to your loading screen, based on The Sims.
 
 ## Installing
 
+### Install via bower:
+
+```
+    bower install reticulating-splines
+```
+
 #### Add script to your project:
 
 ```
