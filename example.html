@@ -2,28 +2,65 @@
 <html>
 <head>
     <title>Reticulating Splines</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <style>
+        * { font-family: 'Montserrat', sans-serif; }
+        body { background-color: #5DC2FF; }
+        #markup { width: 400px; margin: 150px auto 150px auto; background-color: black; color: #7DE07D; }
+        #progress-bar { width: 300px; margin-left: auto; margin-right: auto; }
+        h2 { text-align: center; }
+        #controls { position: absolute; bottom: 0; right: 0; }
+    </style>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.5/ui-bootstrap-tpls.min.js"></script>
 </head>
 <body ng-app="exampleApp">
+    <pre id="markup">
+        &lt;reticulating-splines
+            theme="example.theme.value"
+            interval="example.interval"&gt;
+        &lt;/reticulating-splines&gt;
+    </pre>
+
+    <uib-progressbar id="progress-bar"
+        class="progress-striped active" type="success">
+    </uib-progressbar>
+
     <div ng-controller="ExampleCtrl as example">
-        <h1>
+        <h2>
             <reticulating-splines
                 theme="example.theme.value"
                 interval="example.interval">
             </reticulating-splines>
-        </h1>
-        <select ng-options="option.name for option in example.themes track by option.value"
-            ng-model="example.theme">
-        </select>
-        <label>
-            Interval (ms):
-        </label>
-        <input type="number" ng-model="example.interval">
+        </h2>
+
+        <div id="controls" class="container-fluid">
+            <div class="form-group pull-right">
+                <label>
+                    Interval (ms):
+                </label>
+                <input class="form-control" type="number" ng-model="example.interval">
+            </div>
+            <div class="form-group pull-right">
+                <label>
+                    Theme:
+                </label>
+                <select class="form-control"
+                    ng-options="option.name for option in example.themes track by option.value"
+                    ng-model="example.theme">
+                </select>
+            </div>
+        </div>
     </div>
 
     <script src="dist/reticulating-splines.min.js"></script>
     <script>
-        angular.module('exampleApp', ['reticulatingSplines'])
+        angular.module('exampleApp', ['ui.bootstrap', 'reticulatingSplines'])
             .controller('ExampleCtrl', function(spline) {
                 var ctrl = this;
 
