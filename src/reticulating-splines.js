@@ -42,4 +42,33 @@ angular.module('reticulatingSplines', [])
             splinesCache.put(theme, splines);
             return randomSpline;
         };
+    })
+    .directive('reticulatingSplines', function() {
+        return {
+            restrict: 'EA',
+            scope: {
+                theme: '=',
+                interval: '='
+            },
+            controller: function($scope, $interval, spline) {
+                var getSpline = function() {
+                    $scope.message = spline($scope.theme);
+                };
+
+                var intervalPromise;
+
+                var startInterval = function() {
+                    intervalPromise = $interval(getSpline, $scope.interval);
+                };
+
+                $scope.$watchGroup(['theme', 'interval'], function() {
+                    if (angular.isDefined(intervalPromise)) {
+                        $interval.cancel(intervalPromise);
+                    }
+                    startInterval();
+                    getSpline();
+                });
+            },
+            template: '<span class="reticulating-splines">{{message}}</span>'
+        }
     });
