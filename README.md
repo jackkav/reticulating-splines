@@ -19,7 +19,7 @@ A fun addition to your loading screen, based on The Sims.
   {({ spline }) => (
     <div>
       <p>{spline}</p>
-      <div class="bar" />
+      <div className="bar" />
     </div>
   )}
 </ReticulatingSplines>
