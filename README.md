@@ -6,13 +6,13 @@ A fun addition to your loading screen, based on The Sims.
 
 ## Installing
 
-### Install via yarn:
+### Install via yarn
 
 ```sh
     yarn add jackkav/reticulating-splines
 ```
 
-#### Use the directive to display messages on an interval:
+#### Use the React render props pattern
 
 ```jsx
 <ReticulatingSplines theme="sims" interval={3000}>
