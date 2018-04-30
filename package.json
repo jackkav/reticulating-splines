@@ -1,24 +1,29 @@
 {
   "name": "reticulating-splines",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A fun addition to your loading screen, based on The Sims",
   "repository": {
     "type": "git",
-    "url": "https://github.com/miller-time/reticulating-splines.git"
+    "url": "https://github.com/jackkav/reticulating-splines.git"
   },
-  "author": "Russell Cousineau",
+  "author": "Jack Kavanagh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/miller-time/reticulating-splines/issues"
+    "url": "https://github.com/jackkav/reticulating-splines/issues"
   },
-  "homepage": "https://github.com/miller-time/reticulating-splines",
+  "homepage": "https://github.com/jackkav/reticulating-splines",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-batch": "^1.0.5",
-    "gulp-concat": "^2.6.0",
-    "gulp-ng-annotate": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.3",
-    "gulp-watch": "^4.3.5"
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.3.2",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0"
   }
 }

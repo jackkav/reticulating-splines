@@ -1,5 +1,4 @@
-Reticulating Splines
-====================
+# Reticulating Splines
 
 A fun addition to your loading screen, based on The Sims.
 
@@ -7,55 +6,36 @@ A fun addition to your loading screen, based on The Sims.
 
 ## Installing
 
-### Install via bower:
+### Install via yarn:
 
-```
-    bower install reticulating-splines
-```
-
-#### Add script to your project:
-
-```
-    'reticulating-splines/dist/reticulating-splines.min.js'
-```
-
-#### Add dependency to your AngularJS module:
-
-```javascript
-    angular.module('myModule', ['reticulatingSplines'])
+```sh
+    yarn add jackkav/reticulating-splines
 ```
 
 #### Use the directive to display messages on an interval:
 
-```html
-    <reticulating-splines
-        theme="theme"
-        interval="interval"
-    </reticulating-splines>
-```
-
-Note: the attributes `theme` and `interval` are bound to the containing controller.
-
-#### OR use the provided service to just get a random message:
-
-```javascript
-    .controller('MyController', function($scope, spline) {
-        $scope.theme = 'sims';
-        $scope.randomMessage = spline($scope.theme);
-    })
+```jsx
+<ReticulatingSplines theme="sims" interval={3000}>
+  {({ spline }) => (
+    <div>
+      <p>{spline}</p>
+      <div class="bar" />
+    </div>
+  )}
+</ReticulatingSplines>
 ```
 
 ## Available Themes
 
- * `'sims'` - A collection of messages from The Sims
- * `'web'` - A collection of web/management jargon (buzz words)
+* `'sims'` - A collection of messages from The Sims
+* `'web'` - A collection of web/management jargon (buzz words)
 
 ## Development
 
 First you'll need [NodeJS](http://nodejs.org), and then you'll need to do an `npm install`.
 
-```
-    gulp
+```sh
+    yarn build:watch
 ```
 
 This will watch for changes and build the minified script.
