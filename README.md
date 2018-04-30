@@ -2,7 +2,7 @@
 
 A fun addition to your loading screen, based on The Sims.
 
-![example](example.png)
+![example](example.gif)
 
 ## Installing
 
