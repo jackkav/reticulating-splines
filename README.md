@@ -14,6 +14,8 @@ A fun addition to your loading screen, based on The Sims.
 
 #### Use the React [render props](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) pattern, design your own layout
 
+In the following example, spline is the random loading text.
+
 ```jsx
 <ReticulatingSplines theme="sims" interval={3000}>
   {({ spline }) => (
@@ -50,6 +52,19 @@ A fun addition to your loading screen, based on The Sims.
     background-position: 28px 0;
   }
 }
+```
+
+You can also pass a list of loading texts
+
+```jsx
+<ReticulatingSplines splines={["something", "something else"]}>
+  {({ spline }) => (
+    <div>
+      <p>{spline}</p>
+      <div className="bar" />
+    </div>
+  )}
+</ReticulatingSplines>
 ```
 
 ## Available Themes
